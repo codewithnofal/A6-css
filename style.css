@@ -1634,32 +1634,37 @@ body.no-scroll {
   padding: 0 20px 60px;
 }
 
-@media (max-width: 768px) {
-  .testimonials-section {
-    padding: 55px 0 0;
-  }
-  .testimonials-section .small-title-wrapper,
-  .testimonials-section .section-heading {
-    padding-left: var(--side-padding-mobile);
-    padding-right: var(--side-padding-mobile);
-  }
-  .testimonials-section .section-heading {
-    font-size: 28px;
-    margin-bottom: 30px;
-  }
-  .testimonials-grid {
-    grid-template-columns: repeat(5, minmax(220px, 1fr));
-    gap: 14px;
-    padding: 0 14px 45px;
-  }
-}
 .testimonials-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr); /* Exactly 5 cards in one row */
+  grid-template-columns: repeat(5, 1fr);
   gap: 20px;
   width: 100%;
   max-width: 100%;
 }
+
+@media (max-width:768px){
+
+    .testimonials-grid{
+        display:flex !important;
+        overflow-x:auto;
+        width:100%;
+        gap:15px;
+        padding:0 14px 45px;
+        scroll-snap-type:x mandatory;
+        -ms-overflow-style:none;
+        scrollbar-width:none;
+    }
+
+    .testimonials-grid::-webkit-scrollbar{
+        display:none;
+    }
+
+    .testimonials-grid > *{
+        flex:0 0 100% !important;
+        width:100% !important;
+        max-width:100% !important;
+        scroll-snap-align:start;
+    }
 
 @media (max-width: 1100px) {
   .testimonials-section {
